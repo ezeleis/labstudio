@@ -2,6 +2,7 @@ package Classes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
+import java.util.Collections;
 public class Colaborador {
     private String nome;
     private String dataAdmissao;
@@ -95,6 +96,18 @@ public class Colaborador {
             }
         }
         System.out.println("Colaborador não encontrado.");
+    }
+    public static void listarColaboradoresPorSalarioDecrescente() {
+        List<Colaborador> sortedColaboradores = new ArrayList<>(colaboradores);
+        Collections.sort(sortedColaboradores, (c1, c2) -> Double.compare(c2.getSalario(), c1.getSalario()));
+
+        for (Colaborador colaborador : sortedColaboradores) {
+            System.out.println("Nome: " + colaborador.getNome());
+            System.out.println("Data de Admissão: " + colaborador.getDataAdmissao());
+            System.out.println("Cargo: " + colaborador.getCargo());
+            System.out.println("Salário: " + colaborador.getSalario());
+            System.out.println();
+        }
     }
 }
 

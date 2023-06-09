@@ -9,4 +9,7 @@ public class Cargo {
         this.salarioBase = salarioBase;
         this.nivel = nivel;
     }
+    public String getDescricao() {
+        return descricao;
+    }
 };

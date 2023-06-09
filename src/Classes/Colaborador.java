@@ -42,5 +42,17 @@ public class Colaborador {
     public static List<Colaborador> getColaboradores() {
         return colaboradores;
     }
+
+    public static void exibirColaboradoresAtivos() {
+        for (Colaborador colaborador : colaboradores) {
+            if (colaborador.getDataDesligamento() == null) {
+                System.out.println("Nome: " + colaborador.getNome());
+                System.out.println("Data de Admissão: " + colaborador.getDataAdmissao());
+                System.out.println("Cargo: " + colaborador.getCargo());
+                System.out.println("Salário: " + colaborador.getSalario());
+                System.out.println();
+            }
+        }
+    }
 }
 

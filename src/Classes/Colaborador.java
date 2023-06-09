@@ -1,6 +1,7 @@
 package Classes;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 public class Colaborador {
     private String nome;
     private String dataAdmissao;
@@ -27,6 +28,10 @@ public class Colaborador {
     public String getDataDesligamento(){
         return dataDesligamento;
     }
+    public void setDataDesligamento(String dataDesligamento) {
+        this.dataDesligamento = dataDesligamento;
+    }
+
     public double getSalario(){
         return salario;
     }
@@ -64,6 +69,19 @@ public class Colaborador {
                 System.out.println();
             }
         }
+    }
+    public static void desligarColaborador(String nome, String dataDesligamento) {
+        Iterator<Colaborador> iterator = colaboradores.iterator();
+        while (iterator.hasNext()) {
+            Colaborador colaborador = iterator.next();
+            if (colaborador.getNome().equals(nome)) {
+                colaborador.setDataDesligamento(dataDesligamento);
+                iterator.remove();
+                System.out.println("Colaborador " + colaborador.getNome() + " desligado com sucesso.");
+                return;
+            }
+        }
+        System.out.println("Colaborador não encontrado.");
     }
 }
 

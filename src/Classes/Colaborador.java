@@ -1,11 +1,14 @@
 package Classes;
-
+import java.util.ArrayList;
+import java.util.List;
 public class Colaborador {
     private String nome;
     private String dataAdmissao;
     private String dataDesligamento;
     private Cargo cargo;
     private double salario;
+
+    private static List<Colaborador> colaboradores = new ArrayList<>();
 
     public Colaborador(String nome, String dataAdmissao, Cargo cargo, double salario) {
         this.nome = nome;
@@ -29,6 +32,15 @@ public class Colaborador {
     }
     public Cargo getCargo() {
         return cargo;
+    }
+
+    public static void adicionarColaborador(String nome, String dataAdmissao, Cargo cargo, double salario) {
+        Colaborador colaborador = new Colaborador(nome, dataAdmissao, cargo, salario);
+        colaboradores.add(colaborador);
+    }
+
+    public static List<Colaborador> getColaboradores() {
+        return colaboradores;
     }
 }
 

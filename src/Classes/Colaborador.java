@@ -38,6 +38,9 @@ public class Colaborador {
     public Cargo getCargo() {
         return cargo;
     }
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
 
     public static void adicionarColaborador(String nome, String dataAdmissao, Cargo cargo, double salario) {
         Colaborador colaborador = new Colaborador(nome, dataAdmissao, cargo, salario);
@@ -78,6 +81,16 @@ public class Colaborador {
                 colaborador.setDataDesligamento(dataDesligamento);
                 iterator.remove();
                 System.out.println("Colaborador " + colaborador.getNome() + " desligado com sucesso.");
+                return;
+            }
+        }
+        System.out.println("Colaborador não encontrado.");
+    }
+    public static void promoverColaborador(String nome, Cargo novoCargo) {
+        for (Colaborador colaborador : colaboradores) {
+            if (colaborador.getNome().equals(nome)) {
+                colaborador.setCargo(novoCargo);
+                System.out.println("Colaborador " + colaborador.getNome() + " promovido para " + novoCargo + ".");
                 return;
             }
         }
